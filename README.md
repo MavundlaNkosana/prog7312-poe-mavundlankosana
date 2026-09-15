@@ -32,20 +32,20 @@ Smart-X is a high-performance edge-computing IoT gateway system. It features a r
 
 **Step 1: Booting the .NET Backend**
 Open your terminal and navigate to the backend directory:
-bash
-cd SmartX.Server
+
+```cd SmartX.Server```
 
 Restore the required C# packages and dependencies:
 
-dotnet restore
+```dotnet restore```
 
 Build the project to ensure there are no compilation errors:
 
-dotnet build
+```dotnet build```
 
 Run the server (Note the assigned localhost port in the terminal output, typically 5001 or 7123):
 
-dotnet run
+```dotnet run```
 
 (Alternatively, you can run the backend via Docker Desktop by launching the Docker profile in Visual Studio).
 
