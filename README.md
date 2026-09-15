@@ -7,8 +7,9 @@ Programming 3B POE repository
 **Project:** PROG7312 POE PART 1
 
 # Links
-YouTube Demo: https://youtu.be/5A8OFTE04dY
-GitHub Link: https://github.com/MavundlaNkosana/prog7312-poe-mavundlankosana/
+**YouTube Demo:** https://youtu.be/5A8OFTE04dY
+
+**GitHub Link:** https://github.com/MavundlaNkosana/prog7312-poe-mavundlankosana/
 
 
 ## Overview
@@ -30,7 +31,7 @@ Smart-X is a high-performance edge-computing IoT gateway system. It features a r
 * [Node.js & npm](https://nodejs.org/) (v18+ recommended)
 * Docker Desktop (Optional, for containerized execution)
 
-**Step 1: Booting the .NET Backend**
+### Step 1: Booting the .NET Backend
 Open your terminal and navigate to the backend directory:
 
 ```cd SmartX.Server```
@@ -49,7 +50,7 @@ Run the server (Note the assigned localhost port in the terminal output, typical
 
 (Alternatively, you can run the backend via Docker Desktop by launching the Docker profile in Visual Studio).
 
-**Step 2: Deploying the React Client App**
+### Step 2: Deploying the React Client App
 Open a second, separate terminal and navigate to the frontend directory:
 
 ```cd smartx.client```
@@ -62,7 +63,7 @@ Boot the Vite development server:
 
 ```npm run dev```
 
-**Step 3: Accessing the Application**
+### Step 3: Accessing the Application
 Open your browser and navigate to the local Vite URL provided in the terminal (e.g., http://localhost:57009).
 
 Ensure the API_BASE_URL in App.jsx matches the port your C# server is running on.
