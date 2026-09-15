@@ -1,0 +1,19 @@
+Node.js
+
+node_modules/
+dist/
+npm-debug.log*
+
+.NET / C#
+
+bin/
+obj/
+*.user
+*.suo
+.vs/
+uploads/
+
+OS Files
+
+.DS_Store
+Thumbs.db

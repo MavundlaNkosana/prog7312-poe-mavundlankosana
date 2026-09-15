@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="smartx.client/smartx.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="SmartX.Server/SmartX.Server.csproj" />
+</Solution>
