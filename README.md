@@ -32,35 +32,35 @@ Smart-X is a high-performance edge-computing IoT gateway system. It features a r
 
 **Step 1: Booting the .NET Backend**
 Open your terminal and navigate to the backend directory:
-```bash
+bash
 cd SmartX.Server
+
 Restore the required C# packages and dependencies:
 
-Bash
 dotnet restore
+
 Build the project to ensure there are no compilation errors:
 
-Bash
 dotnet build
+
 Run the server (Note the assigned localhost port in the terminal output, typically 5001 or 7123):
 
-Bash
 dotnet run
+
 (Alternatively, you can run the backend via Docker Desktop by launching the Docker profile in Visual Studio).
 
 **Step 2: Deploying the React Client App**
 Open a second, separate terminal and navigate to the frontend directory:
 
-Bash
-cd smartx.client
+```cd smartx.client```
+
 Install the necessary Node modules (including Vite, React, Lucide-React, and Tailwind CSS v4):
 
-Bash
-npm install
+```npm install```
+
 Boot the Vite development server:
 
-Bash
-npm run dev
+```npm run dev```
 
 **Step 3: Accessing the Application**
 Open your browser and navigate to the local Vite URL provided in the terminal (e.g., http://localhost:57009).
