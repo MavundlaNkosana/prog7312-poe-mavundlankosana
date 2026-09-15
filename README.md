@@ -4,7 +4,7 @@ Programming 3B POE repository
 # Smart-X
 **Author:** Nkosana Mavundla
 **ST Number:** ST10434391
-**Project:** PROG7312 POE PART 1
+**Project:** PROG7312 POE
 
 # Links
 **YouTube Demo:** https://youtu.be/5A8OFTE04dY
