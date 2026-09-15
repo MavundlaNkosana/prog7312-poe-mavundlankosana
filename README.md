@@ -1,5 +1,5 @@
 # prog7312-poe-mavundlankosana
-Programming 3B POE repository
+## Programming 3B POE repository
 
 # Smart-X
 **Author:** Nkosana Mavundla
