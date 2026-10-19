@@ -13,7 +13,7 @@
 
 
 ## Overview
-Smart-X is a high-performance edge-computing IoT gateway system. It features a robust C# .NET 10 Minimal API backend designed for high-throughput sensor telemetry, paired with a modern React/Tailwind CSS frontend for real-time spatial topology mapping and preattentive anomaly detection.
+The Smart-X Ecosystem has evolved from a static data ingestion gateway (Part 1) into a dynamic, real-time processing engine (Part 2). Managing a live network of edge devices requires highly optimized data handling to prevent bottlenecks. This iteration introduces a highly responsive Command Stream, real PBKDF2 authentication, and a backend powered entirely by advanced C# data structures.
 
 ## Key Technical Implementations
 * **Advanced OOP:** Zero-boxing data handling using `TelemetryPacket<T>` generics and custom operator overloading for direct data manipulation.
