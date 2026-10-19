@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 namespace SmartX.Server.Models
 {
-
     public class DeploymentNode
     {
-        public string NodeName { get; set; }
+        public string NodeName { get; set; } = string.Empty;
         public List<DeploymentNode> Children { get; set; } = new List<DeploymentNode>();
 
         // Default constructor for serialization
