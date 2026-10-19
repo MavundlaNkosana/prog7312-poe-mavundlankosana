@@ -1,10 +1,10 @@
 ﻿import { useState, useEffect } from 'react';
 import {
     Activity, RadioReceiver, Map, Server, Settings, AlertTriangle,
-    XCircle, UploadCloud, ChevronRight, Lock, ArrowLeft, Terminal, Undo2, Zap, Search, Filter, KeyRound, User
+    XCircle, UploadCloud, ChevronRight, Lock, ArrowLeft, Terminal, Undo2, Zap, Search, KeyRound, User
 } from 'lucide-react';
 
-const API_BASE_URL = 'https://localhost:32783'; 
+const API_BASE_URL = 'https://localhost:32783';
 
 const ZONES = ['Greenhouse Alpha', 'Greenhouse Beta', 'Pump Station 1', 'Utility Grid'];
 const CATEGORIES = ['Environmental', 'Power Consumption', 'Actuator', 'Liquid Flow'];
@@ -55,6 +55,7 @@ const LoginPage = ({ onLogin }) => {
                 setError(data.message || 'Authentication failed.');
             }
         } catch (err) {
+            console.error(err);
             setError('Network error. Ensure the C# API is running.');
         }
     };
@@ -197,7 +198,10 @@ const IngestionDashboard = ({ nodes, telemetryLog, onRegister, newDevice, setNew
             try {
                 const response = await fetch(`${API_BASE_URL}/api/telemetry/sensors/${encodeURIComponent(newDevice.mac)}/upload-log`, { method: 'POST', body: formData });
                 setUploadStatus(response.ok ? '✅ Encrypted log attached!' : '❌ API Upload Failed');
-            } catch (err) { setUploadStatus('❌ Network Error'); }
+            } catch (err) {
+                console.error(err);
+                setUploadStatus('❌ Network Error');
+            }
         }
     };
 
@@ -269,7 +273,7 @@ const CommandStream = ({ nodes, updateNodeStatus }) => {
     const [commandHistory, setCommandHistory] = useState([]);
     const [insights, setInsights] = useState([]);
 
-    // Fetch predictive insights from API
+    // Fetch predictive insights from API (simulated here for responsiveness, backed by C# engine)
     useEffect(() => {
         const fetchInsights = async () => {
             try {
@@ -293,7 +297,7 @@ const CommandStream = ({ nodes, updateNodeStatus }) => {
             const record = { id: Date.now(), mac, action, time: new Date().toLocaleTimeString() };
             setCommandHistory(prev => [record, ...prev]);
             updateNodeStatus(mac, action === 'SHUTDOWN' ? 'offline' : 'stable');
-        } catch (e) { console.error(e); }
+        } catch (err) { console.error(err); }
     };
 
     const undoLastCommand = async () => {
@@ -305,7 +309,7 @@ const CommandStream = ({ nodes, updateNodeStatus }) => {
                 setCommandHistory(prev => prev.slice(1));
                 updateNodeStatus(lastCmd.mac, 'stable'); // Reset status
             }
-        } catch (e) { console.error(e); }
+        } catch (err) { console.error(err); }
     };
 
     const filteredNodes = nodes.filter(n => n.id.toLowerCase().includes(search.toLowerCase()) || n.type.toLowerCase().includes(search.toLowerCase()));
