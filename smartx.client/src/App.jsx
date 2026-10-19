@@ -170,6 +170,7 @@ const LandingPage = ({ onNavigate }) => (
     </div>
 );
 
+// eslint-disable-next-line no-unused-vars
 const IngestionDashboard = ({ nodes, telemetryLog, onRegister, newDevice, setNewDevice }) => {
     const [uploadStatus, setUploadStatus] = useState(null);
     const [errors, setErrors] = useState({});
@@ -294,10 +295,11 @@ const CommandStream = ({ nodes, updateNodeStatus }) => {
                 body: JSON.stringify({ macAddress: mac, command: action })
             });
             // UI Optimistic update (Stack tracking)
+            // eslint-disable-next-line react-hooks/purity
             const record = { id: Date.now(), mac, action, time: new Date().toLocaleTimeString() };
             setCommandHistory(prev => [record, ...prev]);
             updateNodeStatus(mac, action === 'SHUTDOWN' ? 'offline' : 'stable');
-        } catch (err) { console.error(err); }
+        } catch { console.error("Command execution failed"); }
     };
 
     const undoLastCommand = async () => {
@@ -309,7 +311,7 @@ const CommandStream = ({ nodes, updateNodeStatus }) => {
                 setCommandHistory(prev => prev.slice(1));
                 updateNodeStatus(lastCmd.mac, 'stable'); // Reset status
             }
-        } catch (err) { console.error(err); }
+        } catch { console.error("Undo execution failed"); }
     };
 
     const filteredNodes = nodes.filter(n => n.id.toLowerCase().includes(search.toLowerCase()) || n.type.toLowerCase().includes(search.toLowerCase()));
@@ -366,7 +368,7 @@ const CommandStream = ({ nodes, updateNodeStatus }) => {
                         </button>
                     </div>
                     <div className="p-4 overflow-y-auto space-y-2">
-                        {commandHistory.map((cmd, i) => (
+                        {commandHistory.map((cmd) => (
                             <div key={cmd.id} className="flex justify-between items-center bg-slate-950 border border-slate-800 p-3 rounded">
                                 <span className="text-slate-400 text-xs">[{cmd.time}]</span>
                                 <span className="text-slate-200 text-sm font-mono">EXEC: {cmd.action} ➔ {cmd.mac}</span>
