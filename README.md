@@ -21,6 +21,7 @@ The Smart-X Ecosystem has evolved from a static data ingestion gateway (Part 1) 
 * **Recursive Algorithms:** Deep network hierarchy validation using a recursive `DeploymentNode` algorithm.
 * **Enterprise Security:** On-the-fly AES-256 file encryption utilizing `CryptoStream` for large multipart log attachments without degrading server RAM.
 * **UX Strategy:** Preattentive visual pulsing and strict client-side regex validation (IEEE 802 MAC format).
+* **Enterprise Security & Authentication:** PBKDF2 Hashing: Scrapped hardcoded credentials in favor of a true in-memory Identity API. Passwords are securely salted and hashed using Rfc2898DeriveBytes before issuing cryptographic session tokens.
 
 ---
 
