@@ -22,7 +22,8 @@ The Smart-X Ecosystem has evolved from a static data ingestion gateway (Part 1) 
 * **Enterprise Security:** On-the-fly AES-256 file encryption utilizing `CryptoStream` for large multipart log attachments without degrading server RAM.
 * **UX Strategy:** Preattentive visual pulsing and strict client-side regex validation (IEEE 802 MAC format).
 * **Enterprise Security & Authentication:** Scrapped hardcoded credentials in favor of a true in-memory Identity API using PBKDF2 Hashing. Passwords are securely salted and hashed using Rfc2898DeriveBytes before issuing cryptographic session tokens.
-* **UI/UX & State Preservation:** Asynchronous Navigation from a lifted React state to the root application component. Operators can switch seamlessly between the "Ingestion" and "Command Stream" modules without losing volatile telemetry data or spatial map configurations.
+* **UI/UX & State Preservation:** Asynchronous navigation from a lifted React state to the root application component. Operators can switch seamlessly between the "Ingestion" and "Command Stream" modules without losing volatile telemetry data or spatial map configurations.
+* **Predictive Action Engine** Automated insights from analyzing historical sensor queries and data patterns using frequency mapping to proactively suggest related commands and highlight potentially problematic devices before manual intervention is needed.
 
 ---
 
