@@ -4,7 +4,7 @@ import {
     XCircle, UploadCloud, ChevronRight, Lock, ArrowLeft, Terminal, Undo2, Zap, Search, KeyRound, User
 } from 'lucide-react';
 
-const API_BASE_URL = 'https://localhost:32783';
+const API_BASE_URL = 'https://localhost:32773'; //update when the port changes
 
 const ZONES = ['Greenhouse Alpha', 'Greenhouse Beta', 'Pump Station 1', 'Utility Grid'];
 const CATEGORIES = ['Environmental', 'Power Consumption', 'Actuator', 'Liquid Flow'];
