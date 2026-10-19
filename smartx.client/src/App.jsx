@@ -280,7 +280,7 @@ const CommandStream = ({ nodes, updateNodeStatus }) => {
             try {
                 const res = await fetch(`${API_BASE_URL}/api/command/insights`);
                 if (res.ok) setInsights(await res.json());
-            } catch (err) {
+            } catch {
                 // Fallback demo insights if API disconnected
                 setInsights(["Pattern detected: Pump Station 1 frequently fails after Utility Grid spikes > 1500W. Recommend pre-emptive throttle."]);
             }
