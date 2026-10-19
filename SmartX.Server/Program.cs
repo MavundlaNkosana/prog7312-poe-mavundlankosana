@@ -2,33 +2,30 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SmartX.Server.Models;
+using SmartX.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Register controllers instead of Minimal APIs
 builder.Services.AddControllers();
-
-// Register Swagger for easy API testing
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Register our custom Telemetry Buffer as a Singleton so it persists across requests
+// Part 1 Buffer
 builder.Services.AddSingleton<TelemetryIngestionBuffer>();
+
+// Part 2: Register the new Advanced Data Structures Service as a Singleton
+builder.Services.AddSingleton<IoTDataService>();
+
 builder.Services.AddLogging();
 
-// Enable CORS so the React app can communicate with this API
 builder.Services.AddCors(options => {
     options.AddDefaultPolicy(policy => {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
     });
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -36,13 +33,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-// Apply CORS policy before routing/authorization
 app.UseCors();
-
 app.UseAuthorization();
-
-// Map the API endpoints defined in TelemetryController.cs
 app.MapControllers();
 
 app.Run();
