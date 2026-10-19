@@ -25,7 +25,7 @@ The Smart-X Ecosystem has evolved from a static data ingestion gateway (Part 1) 
 * **UI/UX & State Preservation:** Asynchronous navigation from a lifted React state to the root application component. Operators can switch seamlessly between the "Ingestion" and "Command Stream" modules without losing volatile telemetry data or spatial map configurations.
 * **Predictive Action Engine** Automated insights from analyzing historical sensor queries and data patterns using frequency mapping to proactively suggest related commands and highlight potentially problematic devices before manual intervention is needed.
 * **Advanced Data Structures Engine:** To achieve flawless streaming logic and O(1) instantaneous lookups, the IoTDataService implements:
-- Queues & Priority Queues: Standard telemetry flows through a FIFO Queue<T>, while critical alerts (e.g., severe power spikes) bypass the queue via a PriorityQueue<TElement, TPriority> for zero-latency processing
+-    Queues & Priority Queues: Standard telemetry flows through a FIFO Queue<T>, while critical alerts (e.g., severe power spikes) bypass the queue via a PriorityQueue<TElement, TPriority> for zero-latency processing
 
 ---
 
