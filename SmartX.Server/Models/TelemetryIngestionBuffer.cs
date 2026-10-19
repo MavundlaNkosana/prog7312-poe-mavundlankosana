@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 namespace SmartX.Server.Models
 {
-
     public class TelemetryIngestionBuffer
     {
-        private float[][] _rawBatchBuffer = new float[5][];
+        private float[]?[] _rawBatchBuffer = new float[]?[5];
         private readonly object _lockObject = new object();
 
         public void ReceiveBatch(int gatewayIndex, float[] incomingDataBurst)
