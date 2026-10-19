@@ -7,8 +7,8 @@ namespace SmartX.Server.Services
     // A DTO to store commands in the Stack
     public class CommandRecord
     {
-        public string MacAddress { get; set; }
-        public string CommandAction { get; set; }
+        public string MacAddress { get; set; } = string.Empty;
+        public string CommandAction { get; set; } = string.Empty;
         public DateTime Timestamp { get; set; }
     }
 
@@ -50,7 +50,7 @@ namespace SmartX.Server.Services
                     CriticalAlertQueue.Enqueue(value, 1); // High priority
                     ActiveErrorStates.Add(mac); // HashSet prevents duplicates naturally
 
-                    // Add to predictive pattern analysis
+                    // Add to predictive pattern analysis (e.g. "Spike observed on MAC")
                     PatternFrequency[$"Spike_{mac}"] = PatternFrequency.GetValueOrDefault($"Spike_{mac}", 0) + 1;
                 }
                 else
@@ -77,7 +77,7 @@ namespace SmartX.Server.Services
             }
         }
 
-        public CommandRecord UndoLastCommand()
+        public CommandRecord? UndoLastCommand()
         {
             lock (_lockObject)
             {
